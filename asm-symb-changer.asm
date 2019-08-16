@@ -53,12 +53,12 @@ mov ah,01h ;keyboard input
 int 21h
 cmp al,1bh ;check of ESC button pressed
 je doexit ;if ESC pressed - then terminate program
-cmp al,'w' ;otherwise проверяем нажатие "w"
-jne reset ;если НЕ "w", то обнуляем 8 битные регистры
+cmp al,'w' ;otherwise check if symbol "w" entered
+jne reset ;if NOT "w", then xor 8 bit registers
 inc bl
 cmp bl,num
-jne doit ;если введен символ "W", то повторяем ввод с проверкой
-jmp change_char ;если bl=2 - т.е. введено уже 2 символа "w" подряд, то заменяем символы звездочкой
+jne doit ;if symbol "W" entered, then repeat input with verification
+jmp change_char ;если bl=2 - i.e.already entered 2 characters "w" in a row, then replace the characters with '*'
 
 doexit:
 retn
