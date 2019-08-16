@@ -49,11 +49,11 @@ reset:
 xor bl,bl
 
 doit: 
-mov ah,01h ;ввод с клавиатуры
+mov ah,01h ;keyboard input
 int 21h
-cmp al,1bh ;проверка нажатия ESC
-je doexit ;если нажата - выходим из программы
-cmp al,'w' ;иначе проверяем нажатие "w"
+cmp al,1bh ;check of ESC button pressed
+je doexit ;if ESC pressed - then terminate program
+cmp al,'w' ;otherwise проверяем нажатие "w"
 jne reset ;если НЕ "w", то обнуляем 8 битные регистры
 inc bl
 cmp bl,num
